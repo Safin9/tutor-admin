@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tutor_admin/src/models/user_model.dart';
-import 'package:tutor_admin/src/screens/accoun%20details/signin_ccount.dart';
 import 'package:tutor_admin/src/screens/creating%20account/signing_teacher_email.dart';
 
 class TeachersView extends StatefulWidget {
@@ -60,17 +59,17 @@ class _TeachersViewState extends State<TeachersView> {
                     child: ListView.separated(
                       itemCount: snapshot.data!.docs.length,
                       itemBuilder: ((context, index) {
-                        final user = snapshot.data!.docs[index];
-
+                        final theUser = snapshot.data!.docs[index];
+                        final user = UserModelReady.fromSnapShot(theUser);
                         return ListTile(
                           onTap: () {
-                            final u = user.data()['uid'];
-                            Get.to(() => SignInAccount(
-                                user: UserModelReady.fromSnapShot(user)));
-                            print('data of tapped user :  $u');
+                            // FIXME: go to signinaccount page
+                            // Get.to(() => SignInAccount(
+                            //     user: UserModelReady.fromSnapShot(user)));
+                            print('data of tapped user :  ${user.uid}');
                           },
-                          title: Text(user['name']),
-                          subtitle: Text(user['email']),
+                          title: Text(user.name),
+                          subtitle: Text(user.email!),
                           trailing: IconButton(
                             icon: const Icon(Icons.delete),
                             onPressed: () {

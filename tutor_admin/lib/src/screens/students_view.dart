@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tutor_admin/src/models/user_model.dart';
 
 class StudentView extends StatefulWidget {
   const StudentView({Key? key}) : super(key: key);
@@ -47,15 +48,18 @@ class _StudentViewState extends State<StudentView> {
                     child: ListView.separated(
                       itemCount: snapshot.data!.docs.length,
                       itemBuilder: ((context, index) {
-                        final user = snapshot.data!.docs[index];
+                        final theUser = snapshot.data!.docs[index];
+                        final user = UserModelReady.fromSnapShot(theUser);
                         return ListTile(
-                          onTap: () {},
+                          onTap: () {
+                            print(user.uid + user.name);
+                          },
                           subtitle: Text(index.toString()),
-                          title: Text(user['name']),
+                          title: Text(user.name),
                           trailing: IconButton(
                             icon: const Icon(Icons.delete),
                             onPressed: () {
-                              dialog(user: user);
+                              dialog(user: theUser);
                             },
                           ),
                         );

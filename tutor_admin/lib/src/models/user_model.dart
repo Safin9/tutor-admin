@@ -131,7 +131,7 @@ class UserModelReady {
               (map['birthDate'] as Map<String, dynamic>))
           : null,
       education: map['education'] != null
-          ? List<String>.from((map['education'] as List<String>))
+          ? List<String>.from((map['education'] as List<dynamic>))
           : null,
       languages: map['languages'] != null
           ? List<String>.from((map['languages'] as List<dynamic>))

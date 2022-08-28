@@ -27,6 +27,9 @@ class _SigningTeacherState extends State<SigningTeacher> {
   ToolsForLogAndSignup? tools;
   TextEditingController? emailContr;
   TextEditingController? passwordContr;
+  TextEditingController? shortBioContr;
+  TextEditingController? languages;
+  TextEditingController? educationContr;
   TextEditingController? nameContr;
   TextEditingController? surnameContr;
   TextEditingController? phoneContr;
@@ -51,8 +54,11 @@ class _SigningTeacherState extends State<SigningTeacher> {
     strs.methodForInts();
     tools = ToolsForLogAndSignup();
     emailContr = TextEditingController();
+    shortBioContr = TextEditingController();
     passwordContr = TextEditingController();
     nameContr = TextEditingController();
+    languages = TextEditingController();
+    educationContr = TextEditingController();
     surnameContr = TextEditingController();
     phoneContr = TextEditingController();
     super.initState();
@@ -65,6 +71,9 @@ class _SigningTeacherState extends State<SigningTeacher> {
     surnameContr!.dispose();
     passwordContr!.dispose();
     phoneContr!.dispose();
+    shortBioContr!.dispose();
+    languages!.dispose();
+    educationContr!.dispose();
     super.dispose();
   }
 
@@ -111,6 +120,21 @@ class _SigningTeacherState extends State<SigningTeacher> {
                           isobsecure: false, controller: phoneContr),
                       title: 'Phone Number',
                     ),
+                    formItem(
+                      textField: tools!.buildTextField(
+                          isobsecure: false, controller: shortBioContr),
+                      title: 'Short bio',
+                    ),
+                    formItem(
+                      textField: tools!.buildTextField(
+                          isobsecure: false, controller: languages),
+                      title: 'Languages',
+                    ),
+                    formItem(
+                      textField: tools!.buildTextField(
+                          isobsecure: false, controller: educationContr),
+                      title: 'Education Degree',
+                    ),
                     text(text: 'Birth Date'),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 25),
@@ -124,7 +148,6 @@ class _SigningTeacherState extends State<SigningTeacher> {
                               valueChanged: (value) {
                                 setState(() {
                                   selectedDay = value;
-                                  print('selected day :$selectedDay');
                                 });
                               }),
                           datePicker(
@@ -133,7 +156,6 @@ class _SigningTeacherState extends State<SigningTeacher> {
                               valueChanged: (value) {
                                 setState(() {
                                   selectedMonth = value;
-                                  print('selected month :$selectedMonth');
                                 });
                               }),
                           datePicker(
@@ -142,7 +164,6 @@ class _SigningTeacherState extends State<SigningTeacher> {
                               valueChanged: (value) {
                                 setState(() {
                                   selectedYear = value;
-                                  print('selected year :$selectedYear');
                                 });
                               }),
                         ],
@@ -220,10 +241,12 @@ class _SigningTeacherState extends State<SigningTeacher> {
             gender: selectedGender.toString(),
             imageUrl: _selectedImage == null ? '' : _selectedImage!.path,
             lessonType: selectedLessonType,
-            languages: [''],
+            languages: [languages!.text],
+            shortbio: shortBioContr!.text.trim(),
             name: nameContr!.text,
             tacherOrStudent: 'Teacher',
             birthDate: birthDate.toMap(),
+            education: [educationContr!.text],
             phoneNumber: phoneContr!.text,
             surname: surnameContr!.text,
             uid: FirebaseAuth.instance.currentUser!.uid,
@@ -311,7 +334,6 @@ class _SigningTeacherState extends State<SigningTeacher> {
 
     final storageRef = FirebaseStorage.instance.ref();
     //if we have a user you can do it like this
-    //TODO: put teacher uid instead of 'someuser'
     final imagesRef = storageRef.child("Teachers/${file.path}");
     imagesRef.putFile(file).snapshotEvents.listen((taskSnapshot) async {
       switch (taskSnapshot.state) {
