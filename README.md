@@ -2,7 +2,11 @@
 Tutor Admin: is the controller of signing teachers by the admin to the TutorGroup application...
 
 
-<p align="center"><img src="https://user-images.githubusercontent.com/97254019/190928581-c1321ed2-e618-4b54-b797-01e17a676791.png" width=150 height=150></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/97254019/190928581-c1321ed2-e618-4b54-b797-01e17a676791.png" width=150 height=150>
+<div>  
+ <a href="https://drive.google.com/file/d/1GCLoEVviHxhf-ZOyuL_-hl3y9GcIDTHp/view?usp=sharing">application video show</a>
+</div>
+</p>
 
 
 <div>
@@ -15,12 +19,10 @@ Tutor Admin: is the controller of signing teachers by the admin to the TutorGrou
 
 
 <div>  
-        <a href="https://drive.google.com/file/d/1GCLoEVviHxhf-ZOyuL_-hl3y9GcIDTHp/view?usp=sharing">application video show</a>
+ <a href="https://drive.google.com/file/d/1GCLoEVviHxhf-ZOyuL_-hl3y9GcIDTHp/view?usp=sharing">application video show</a>
 </div>
 
 
-
-![Screenshot_1663175859]()
 
 
 
