@@ -2,22 +2,23 @@
 Tutor Admin: is the controller of signing teachers by the admin to the TutorGroup application...
 
 
-<p align="center"><img src="https://user-images.githubusercontent.com/97254019/190928581-c1321ed2-e618-4b54-b797-01e17a676791.png" width=150 height=150>
+<p align="center"><img src="https://user-images.githubusercontent.com/97254019/190928581-c1321ed2-e618-4b54-b797-01e17a676791.png" width=150 height=150></p>
 
+<div  align="center">
  <a href="https://drive.google.com/file/d/1GCLoEVviHxhf-ZOyuL_-hl3y9GcIDTHp/view?usp=sharing">application video show</a>
+</div>
 
 
+<br>
 
-
-
+<div align="center">
 <img src="https://user-images.githubusercontent.com/97254019/190928618-f40ef9e0-3a17-41c0-95e1-3e6a989029b0.png" width=150 height=150>
-
-
-  
+</div>
+<br>
+  <div align="center">
         <a href="https://github.com/Safin9/Tutor-Group.git">TutorGroup Repositary</a>
-
-</p>
-
+</div>
+<br>
 
 
 
